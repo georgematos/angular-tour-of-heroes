@@ -8,12 +8,11 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name" />
-    </label>
-  </div>
-</div>
+<!-- Passa o heroi selecionado para outro componente que se
+encarregará de exibir os detalhes.
+
+Note que o componente é como uma tag html com suas pro-
+priedades, uma propriedade de um componente é equivalente a
+uma propriedade de uma tag, os colchetes são usados para fazer
+o property biding -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
