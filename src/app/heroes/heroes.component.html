@@ -1,18 +1,9 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" 
-    [class.selected]="hero === selectedHero" 
-    (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span>
-    {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span>
+      {{hero.name}}
+    </a>
   </li>
 </ul>
-
-<!-- Passa o heroi selecionado para outro componente que se
-encarregará de exibir os detalhes.
-
-Note que o componente é como uma tag html com suas pro-
-priedades, uma propriedade de um componente é equivalente a
-uma propriedade de uma tag, os colchetes são usados para fazer
-o property biding -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
